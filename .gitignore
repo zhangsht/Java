@@ -46,6 +46,7 @@ local.properties
 
 .idea
 .project
+*.iml
 
 
 # Scala IDE specific (Scala & Java development for Eclipse)
