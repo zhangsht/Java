@@ -36,6 +36,7 @@ public class SwapPairs {
 				break;
 			}
 		}
+		
 		return dummy.next;
 	}
 	
