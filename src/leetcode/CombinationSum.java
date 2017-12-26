@@ -23,9 +23,11 @@ public class CombinationSum {
 
 	private void getResult(int[] candidates, int target, int start, List<List<Integer>> list, ArrayList<Integer> cur) {
 		if (target == 0) {
+			// add a new list
 			list.add(new ArrayList<>(cur));
 		} else if (target > 0) {
 			for (int i = start; i < candidates.length; i++) {
+				// backtracking
 				cur.add(candidates[i]);
 				getResult(candidates, target - candidates[i], i, list, cur);
 				cur.remove(cur.size() - 1);
