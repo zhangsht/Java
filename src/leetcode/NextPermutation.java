@@ -3,8 +3,12 @@ package leetcode;
 public class NextPermutation {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		int nums[] = {1, 2, 3};
+		NextPermutation nextPermutation = new NextPermutation();
+		nextPermutation.nextPermutation(nums);
+		for (int i = 0; i < 3; i++) {
+			System.out.println(nums[i]);
+		}
 	}
 
 	public void nextPermutation(int[] nums) {
