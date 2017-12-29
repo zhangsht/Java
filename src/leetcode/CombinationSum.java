@@ -9,7 +9,7 @@ public class CombinationSum {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		CombinationSum combinationSum = new CombinationSum();
-		int candidates[] = { 10, 1, 2, 7, 6, 8, 1, 5 };
+		int candidates[] = { 8 };
 		int target = 8;
 		List<List<Integer>> list = combinationSum.combinationSum2(candidates, target);
 		for (List<Integer> row : list) {
@@ -60,12 +60,12 @@ public class CombinationSum {
 	}
 
 	private void getResult2(int[] candidates, int target, int start, List<List<Integer>> list, ArrayList<Integer> cur) {
-		if (target < 0 || start >= candidates.length) {
-			return;
-		}
 		if (target == 0) {
 			// add a new list
 			list.add(new ArrayList<>(cur));
+			return;
+		}
+		if (target < 0 || start >= candidates.length) {
 			return;
 		}
 		for (int i = start; i < candidates.length; i++) {
