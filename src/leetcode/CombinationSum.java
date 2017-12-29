@@ -21,7 +21,7 @@ public class CombinationSum {
 		System.out.println("done");
 	}
 
-	// number may be used more than one 
+	// number may be used more than one
 	public List<List<Integer>> combinationSum(int[] candidates, int target) {
 		if (candidates == null) {
 			return null;
@@ -48,7 +48,7 @@ public class CombinationSum {
 		return;
 	}
 
-	// number is only used once 
+	// number is only used once
 	public List<List<Integer>> combinationSum2(int[] candidates, int target) {
 		if (candidates == null) {
 			return null;
@@ -60,18 +60,23 @@ public class CombinationSum {
 	}
 
 	private void getResult2(int[] candidates, int target, int start, List<List<Integer>> list, ArrayList<Integer> cur) {
+		if (target < 0 || start >= candidates.length) {
+			return;
+		}
 		if (target == 0) {
 			// add a new list
 			list.add(new ArrayList<>(cur));
-		} else if (target > 0) {
-			for (int i = start; i < candidates.length; i++) {
-				// backtracking
-				cur.add(candidates[i]);
-				// next index need adding 1
-				getResult2(candidates, target - candidates[i], i + 1, list, cur);
-				cur.remove(cur.size() - 1);
-			}
+			return;
 		}
-		return;
+		for (int i = start; i < candidates.length; i++) {
+			if (i > start && candidates[i] == candidates[i - 1]) {
+				continue;
+			}
+			// backtracking
+			cur.add(candidates[i]);
+			// next index need adding 1
+			getResult2(candidates, target - candidates[i], i + 1, list, cur);
+			cur.remove(cur.size() - 1);
+		}
 	}
 }
