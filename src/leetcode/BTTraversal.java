@@ -19,19 +19,17 @@ public class BTTraversal {
 	}
 
 	private void getResult(List<List<Integer>> traversals, TreeNode root, int level) {
-		if (root == null) {
-			return;
+		if (root != null) {
+			if (traversals.size() < level) {
+			    List<Integer> tmp = new LinkedList<>();
+			    tmp.add(root.val);
+			    traversals.add(tmp);
+			} else {
+			    traversals.get(level - 1).add(root.val);
+			}
+			getResult(traversals, root.left, level + 1);
+			getResult(traversals, root.right, level + 1);
 		}
-		
-		if (traversals.size() < level) {
-			List<Integer> tmp = new LinkedList<>();
-			tmp.add(root.val);
-			traversals.add(tmp);
-		} else {
-			traversals.get(level - 1).add(root.val);
-		}
-		getResult(traversals, root.left, level + 1);
-		getResult(traversals, root.right, level + 1);
 		return;
 	}
 }
