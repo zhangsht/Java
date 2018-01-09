@@ -32,5 +32,6 @@ public class BTTraversal {
 		}
 		getResult(traversals, root.left, level + 1);
 		getResult(traversals, root.right, level + 1);
+		return;
 	}
 }
